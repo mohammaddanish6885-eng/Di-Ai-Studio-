@@ -4,11 +4,15 @@ on:
 
 push:
 
-branches: ["main"]
+branches:
+
+- main
 
 pull_request:
 
-branches: ["main"]
+branches:
+
+- main
 
 jobs:
 
@@ -18,19 +22,19 @@ runs-on: ubuntu-latest
 
 steps:
 
-- name: Checkout source
+name: Checkout source
 
 uses: actions/checkout@v4
 
-- name: Set up JDK 17
+name: Set up JDK 17
 
 uses: actions/setup-java@v4
 
 with:
 
-java-version: "17"
+java-version: '17'
 
-distribution: temurin
+distribution: 'temurin'
 
 cache: gradle
 
@@ -38,11 +42,11 @@ cache: gradle
 
 run: chmod +x gradlew
 
-- name: Build APK
+name: Build APK
 
 run: ./gradlew assembleDebug
 
-- name: Upload APK
+name: Upload APK
 
 uses: actions/upload-artifact@v4
 
